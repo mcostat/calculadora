@@ -1,36 +1,40 @@
 
-
 class CalculadoraAbstrata:
-
-    #operacoes = {"mais": self.soma()}
-
     def soma(self, a, b):
-        return a+b
+        return a + b
+
+    def subtrai(self, a, b):
+        return a - b
+
+    def divide(self, a, b):
+        if b == 0:
+            return "Erro de calculo"
+
+        return a/b
+
+    def eleva(self, a, b):
+        if b == 0 and a <= 0:
+            return "Erro de calculo"
+
+        return a ** b
+
+    def vezes(self, a, b):
+        return a * b
+
+    operacoes = {"mais": soma, "menos": subtrai,
+                 "dividido": divide, "elevado": eleva, "vezes": vezes}
 
     def calcula(self, entrada):
         lista = entrada.split(" ")
 
-        num1 = float(lista[0])
-        num2 = float(lista[-1])
-        operacao = lista[1]
-
-        #return self.operacoes[operacao](num1, num2)
-
-        if operacao == "mais":
-            return num1 + num2
-        elif operacao == "menos":
-            return num1 - num2
-        elif operacao == "vezes":
-            return num1 * num2
-        elif operacao == "dividido":
-            return num1 / num2
-        elif operacao == "elevado":
-            return num1 ** num2
-        else:
-            raise Exception("operação invalida!")
+        if len(lista) < 3 or len(lista) > 4:
+            return "Entrada invalida"
         
+        try:
+            num1 = float(lista[0])
+            num2 = float(lista[-1])
+            operacao = lista[1]
 
-
-if __name__ == "__main__":
-    c = CalculadoraAbstrata()
-    print("aaa")
+            return self.operacoes.get(operacao)(self, num1, num2)
+        except Exception:
+            return "Entrada invalida"
