@@ -23,7 +23,9 @@ public class CalculadoraArquivo extends CalculadoraAbstrata {
             writer.close();
         } catch (IOException e) {
             System.out.println("Erro no arquivo");
-        } 
+        }
+
+        scanner.close();
     }
 
 }

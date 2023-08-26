@@ -7,12 +7,10 @@ public class CalculadoraAbstrata {
     }
 
     public double calcula(String entrada) {
-        double resultado = 0f;
-
         String[] lista = entrada.split(" ");
 
         double num1 = Float.valueOf(lista[0]);
-        double num2 = Float.valueOf(lista[lista.length-1]);
+        double num2 = Float.valueOf(lista[lista.length - 1]);
         String operacao = lista[1];
 
         if (operacao.equals("mais")) {
