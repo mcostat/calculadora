@@ -2,6 +2,8 @@ package com.exemplo;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        //CalculadoraConsole calculadora = new CalculadoraConsole();
+        CalculadoraAbstrata calculadora = new CalculadoraArquivo();
+        calculadora.main();
     }
 }
